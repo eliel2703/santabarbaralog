@@ -28,6 +28,7 @@
             font-family: 'Inter', sans-serif;
             color: var(--text-dark);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, h4, h5 {
@@ -49,26 +50,27 @@
             transition: all 0.3s ease;
             border: none;
             box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
-            white-space: nowrap; /* Evita quebra de linha no texto do botão */
+            white-space: nowrap;
         }
 
         .btn-gold:hover {
             background-color: var(--accent-hover);
             transform: translateY(-2px);
             color: white;
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
         }
 
         .navbar .btn-gold {
-            padding: 8px 16px;
-            font-size: 0.8rem;
-            letter-spacing: 0.5px;
+            padding: 8px 20px;
+            font-size: 0.85rem;
         }
 
-        /* --- NAVBAR --- */
+        /* --- NAVBAR & MENU --- */
         .navbar {
             background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            padding: 8px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            padding: 10px 0;
+            transition: all 0.3s;
         }
 
         .navbar-brand {
@@ -77,55 +79,71 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             color: var(--primary) !important;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
 
         .nav-link {
             color: var(--primary) !important;
             font-weight: 500;
-            margin-left: 15px;
+            margin-left: 20px;
             font-size: 0.95rem;
             transition: color 0.3s;
+            position: relative;
         }
 
         .nav-link:hover {
             color: var(--accent) !important;
         }
 
+        /* Correção do Botão Hamburguer (3 listrinhas) */
+        .navbar-toggler {
+            border: none;
+            padding: 5px;
+            outline: none !important; /* Remove a borda azul ao clicar */
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon-custom {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
         /* --- HERO SECTION --- */
         .hero {
             background: linear-gradient(rgba(15, 40, 80, 0.85), rgba(68, 72, 5, 0.7)), url('fundo.png');
             background-size: cover;
-            background-position: center bottom; /* Ajustado para mobile */
-            /* Height ajustado para min-height para evitar bugs em mobile landscape */
+            background-position: center -15%;
             min-height: 100vh; 
             display: flex;
             align-items: center;
             color: white;
             position: relative;
-            padding-top: 80px; /* Compensa a navbar fixa */
+            padding-top: 80px;
+            padding-bottom: 50px;
         }
 
         .hero-content h1 {
             color: white;
             font-size: 3.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            margin-bottom: 25px;
+            line-height: 1.1;
         }
 
         .hero-content p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: 35px;
             max-width: 600px;
             border-left: 4px solid var(--accent);
             padding-left: 20px;
+            font-weight: 300;
         }
 
         /* --- SECTIONS GERAL --- */
-        section {
-            padding: 80px 0;
-        }
+        section { padding: 80px 0; }
 
         .section-title {
             text-align: center;
@@ -146,6 +164,7 @@
             font-size: 2.5rem;
             position: relative;
             display: inline-block;
+            margin-bottom: 0;
         }
 
         .section-title h2::after {
@@ -165,8 +184,6 @@
             border-radius: 8px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             height: 100%;
-            position: relative;
-            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.03);
         }
 
@@ -177,9 +194,16 @@
         }
 
         .service-icon {
-            font-size: 40px;
+            font-size: 35px;
             color: var(--accent);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            width: 70px;
+            height: 70px;
+            background: rgba(197, 160, 89, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
 
         .service-card h4 {
@@ -199,8 +223,10 @@
         .logistics-banner {
             background-color: var(--primary);
             color: white;
+            position: relative;
+            overflow: hidden;
         }
-
+        
         /* --- FOOTER --- */
         footer {
             background: #08162E;
@@ -214,14 +240,14 @@
             position: fixed;
             width: 60px;
             height: 60px;
-            bottom: 40px;
-            right: 40px;
+            bottom: 30px;
+            right: 30px;
             background-color: #25d366;
             color: #FFF;
-            border-radius: 50px;
+            border-radius: 50%;
             text-align: center;
             font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -236,89 +262,68 @@
         }
 
         /* =========================================
-           RESPONSIVIDADE AVANÇADA (CELULAR E TABLET)
+           RESPONSIVIDADE E MENU MOBILE (CORREÇÕES)
            ========================================= */
         
-        /* Tablets e Notebooks Pequenos (até 991px) */
         @media (max-width: 991px) {
+            /* Menu Estilo "Gaveta" no Mobile */
             .navbar-collapse {
                 background: white;
                 padding: 20px;
-                border-radius: 0 0 8px 8px;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                border-radius: 8px;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+                margin-top: 10px;
+                max-height: 80vh; /* Evita que o menu ultrapasse a tela */
+                overflow-y: auto;
             }
             
             .navbar-nav .btn-gold {
-                margin-top: 15px;
-                width: 100%; /* Botão ocupa largura total no menu */
+                margin-top: 20px;
+                width: 100%;
                 text-align: center;
                 margin-left: 0 !important;
+                display: block;
             }
 
             .nav-link {
                 margin-left: 0;
-                padding: 10px 0;
-                border-bottom: 1px solid #eee;
+                padding: 12px 0; /* Área de toque maior */
+                border-bottom: 1px solid #f0f0f0;
+                font-size: 1.1rem; /* Fonte maior para ler no celular */
+                color: var(--primary) !important;
             }
 
-            .hero-content h1 { font-size: 2.8rem; }
-            
-            /* Ajuste para imagem e texto do Quem Somos não colarem */
-            #quem-somos img {
-                margin-bottom: 30px;
+            .hero {
+                text-align: center; /* Centraliza texto no mobile */
+                background-position: center center;
+            }
+
+            .hero-content {
+                padding: 0 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.4rem; /* Ajuste para não quebrar feio */
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                padding-left: 0;
+                border-left: none;
+                border-top: 3px solid var(--accent);
+                padding-top: 15px;
+                margin: 0 auto 30px auto;
             }
         }
 
-        /* Celulares (até 768px) */
-        @media (max-width: 768px) {
-            /* Navbar */
-            .navbar-brand { font-size: 1rem; }
-            .navbar-brand img { height: 40px; }
+        @media (max-width: 576px) {
+            .navbar-brand { font-size: 1.1rem; }
+            .navbar-brand img { height: 35px; }
             
-            /* Hero Section */
-            .hero {
-                min-height: 90vh; /* Altura melhor para mobile */
-                text-align: left;
-                padding-top: 100px; /* Mais espaço pro menu fixo */
-            }
-            .hero-content h1 { 
-                font-size: 2.2rem; /* Fonte menor */
-            }
-            .hero-content p { 
-                font-size: 1rem;
-                padding-left: 15px;
-                border-left-width: 3px;
-            }
+            section { padding: 50px 0; }
             
-            /* Seções Gerais */
-            section { padding: 50px 0; } /* Menos padding vertical */
+            .section-title h2 { font-size: 1.8rem; }
             
-            .section-title h2 { 
-                font-size: 1.8rem; 
-            }
-            .section-title p {
-                font-size: 0.9rem;
-            }
-
-            /* Botões */
-            .btn-gold {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-                width: 100%; /* Botões full width no mobile ficam melhores */
-                display: block;
-                text-align: center;
-                margin-bottom: 10px;
-            }
-            
-            /* Ajuste para os botões do hero ficarem um embaixo do outro se houver dois */
-            .hero .d-flex {
-                flex-direction: column;
-            }
-            .hero .btn-gold {
-                margin-right: 0 !important;
-            }
-
-            /* Whatsapp Flutuante menor */
             .whatsapp-float {
                 width: 50px;
                 height: 50px;
@@ -327,9 +332,10 @@
                 right: 20px;
             }
 
-            /* Banner Logística */
-            .logistics-banner h2 { font-size: 1.8rem; }
-            .logistics-banner .lead { font-size: 1rem; }
+            /* Correção imagem "Quem Somos" no mobile */
+            #quem-somos img {
+                margin-bottom: 30px;
+            }
         }
     </style>
 </head>
@@ -338,12 +344,14 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="stabarbarafun.png" alt="SB" height="50" class="mr-2 d-none d-sm-block">
-                <img src="stabarbarafun.png" alt="SB" height="40" class="mr-2 d-block d-sm-none"> Santa Bárbara
+                <img src="stabarbarafun.png" alt="SB" height="45" class="mr-2" onerror="this.style.display='none'"> 
+                Santa Bárbara
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-                <span style="color:var(--primary); font-size: 1.5rem;"><i class="fas fa-bars"></i></span>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon-custom"><i class="fas fa-bars"></i></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto align-items-lg-center">
                     <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
@@ -363,7 +371,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 hero-content" data-aos="fade-right" data-aos-duration="1000">
-                    <span style="color: var(--accent); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; display: block; font-size: 0.85rem;">Logística Funerária Especializada</span>
+                    <span style="color: var(--accent); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; display: block; font-size: 0.9rem;">Logística Funerária Especializada</span>
                     <h1>Excelência em Translado <br> <span style="color:var(--accent)">Internacional e Terrestre</span></h1>
                     <p>Cuidamos de todos os trâmites burocráticos e logísticos para garantir que seu ente querido retorne ao lar com dignidade, segurança e respeito.</p>
                     
@@ -380,10 +388,10 @@
     <section id="quem-somos">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <img src="stabarbarafun.png" alt="Logística Funerária" class="img-fluid rounded shadow-lg w-100">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-offset="100">
+                    <img src="stabarbarafun.png" alt="Logística Funerária" class="img-fluid rounded shadow-lg w-100" onerror="this.src='https://placehold.co/600x400/0F2850/FFF?text=Santa+Barbara'">
                 </div>
-                <div class="col-lg-6 pl-lg-5" data-aos="fade-left">
+                <div class="col-lg-6 pl-lg-5" data-aos="fade-left" data-aos-offset="100">
                     <div class="section-title text-left mb-4 mt-4 mt-lg-0">
                         <span>SOBRE A SANTA BÁRBARA</span>
                         <h2 style="margin: 0; border: none;">Compromisso e Agilidade</h2>
@@ -404,14 +412,14 @@
 
     <section id="servicos" style="background-color: var(--light);">
         <div class="container">
-            <div class="section-title" data-aos="fade-up">
+            <div class="section-title" data-aos="fade-up" data-aos-offset="100">
                 <span>SOLUÇÕES COMPLETAS</span>
                 <h2>Nossos Serviços de Logística</h2>
                 <p class="text-muted mt-3">Gerenciamos cada etapa do processo para sua tranquilidade.</p>
             </div>
 
             <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="0">
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-plane-departure"></i></div>
                         <h4>Translado Aéreo Internacional</h4>
@@ -419,7 +427,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-ambulance"></i></div>
                         <h4>Translado Terrestre</h4>
@@ -427,7 +435,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-passport"></i></div>
                         <h4>Assessoria Documental</h4>
@@ -435,7 +443,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="0">
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-flask"></i></div>
                         <h4>Tanatopraxia e Embalsamamento</h4>
@@ -443,7 +451,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-box"></i></div>
                         <h4>Urnas para Transporte</h4>
@@ -451,7 +459,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-hand-holding-heart"></i></div>
                         <h4>Acolhimento Familiar</h4>
@@ -462,7 +470,7 @@
         </div>
     </section>
 
-    <section class="logistics-banner text-center" data-aos="zoom-in">
+    <section class="logistics-banner text-center" data-aos="zoom-in" data-aos-offset="100">
         <div class="container">
             <h2 class="text-white mb-4">Precisa de um orçamento imediato?</h2>
             <p class="lead text-white-50 mb-5">Nossa equipe de plantão está pronta para calcular a rota e os custos agora mesmo.</p>
@@ -512,11 +520,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inicia a animação ao rolar
+        // Configuração de Animação Otimizada para Mobile
         AOS.init({
-            once: true,
-            offset: 50, // Reduzido para disparar mais fácil no mobile
+            once: true, // Anima só uma vez
+            offset: 50, // Começa a animar logo que o elemento aparece
             duration: 800,
+            disable: window.innerWidth < 768 ? false : false // Pode alterar para 'true' se quiser desativar animação no celular
+        });
+
+        // Fechar o menu automaticamente ao clicar em um link (Melhoria de UX no Mobile)
+        $('.navbar-nav>li>a').on('click', function(){
+            $('.navbar-collapse').collapse('hide');
         });
     </script>
 </body>
