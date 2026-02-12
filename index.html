@@ -1,8 +1,3 @@
-Com certeza. Adicionei o nome **Santa Bárbara** de volta ao lado do logotipo na barra de navegação, mantendo a formatação elegante (fonte *Playfair Display*) e o alinhamento correto.
-
-Aqui está o código completo atualizado:
-
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -54,6 +49,7 @@ Aqui está o código completo atualizado:
             transition: all 0.3s ease;
             border: none;
             box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+            white-space: nowrap; /* Evita quebra de linha no texto do botão */
         }
 
         .btn-gold:hover {
@@ -62,22 +58,10 @@ Aqui está o código completo atualizado:
             color: white;
         }
 
-        /* Ajuste Específico para o Botão da Navbar (MENOR) */
         .navbar .btn-gold {
-            padding: 8px 16px;   /* Menor preenchimento */
-            font-size: 0.8rem;   /* Fonte menor */
+            padding: 8px 16px;
+            font-size: 0.8rem;
             letter-spacing: 0.5px;
-        }
-
-        .btn-outline-light {
-            border: 2px solid rgba(255,255,255,0.3);
-            font-weight: 500;
-        }
-
-        .btn-outline-light:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: white;
         }
 
         /* --- NAVBAR --- */
@@ -88,12 +72,12 @@ Aqui está o código completo atualizado:
         }
 
         .navbar-brand {
-            display: flex;           /* Alinha imagem e texto */
-            align-items: center;     /* Centraliza verticalmente */
+            display: flex;
+            align-items: center;
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             color: var(--primary) !important;
-            font-size: 1.3rem;       /* Tamanho do texto */
+            font-size: 1.3rem;
         }
 
         .nav-link {
@@ -112,12 +96,14 @@ Aqui está o código completo atualizado:
         .hero {
             background: linear-gradient(rgba(15, 40, 80, 0.85), rgba(68, 72, 5, 0.7)), url('fundo.png');
             background-size: cover;
-            background-position: center -15%; /* Mantém a imagem mais para baixo conforme pedido anterior */
-            height: 100vh;
+            background-position: center bottom; /* Ajustado para mobile */
+            /* Height ajustado para min-height para evitar bugs em mobile landscape */
+            min-height: 100vh; 
             display: flex;
             align-items: center;
             color: white;
             position: relative;
+            padding-top: 80px; /* Compensa a navbar fixa */
         }
 
         .hero-content h1 {
@@ -171,7 +157,7 @@ Aqui está o código completo atualizado:
             margin: 15px auto 0;
         }
 
-        /* --- SERVIÇOS (QUADRADINHOS) --- */
+        /* --- SERVIÇOS --- */
         .service-card {
             background: white;
             padding: 40px 30px;
@@ -215,65 +201,12 @@ Aqui está o código completo atualizado:
             color: white;
         }
 
-        .stat-item h3 {
-            color: var(--accent);
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-        }
-        .stat-item p { color: rgba(255,255,255,0.7); }
-
-        /* --- CONTATO & MAPA --- */
-        .contact-info-box {
-            background: white;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-radius: 8px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 30px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(197, 160, 89, 0.1);
-            color: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-
         /* --- FOOTER --- */
         footer {
             background: #08162E;
             color: white;
             padding: 60px 0 20px;
             border-top: 4px solid var(--accent);
-        }
-
-        .footer-social a {
-            color: white;
-            background: rgba(255,255,255,0.1);
-            width: 40px;
-            height: 40px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin-right: 10px;
-            transition: 0.3s;
-        }
-
-        .footer-social a:hover {
-            background: var(--accent);
-            color: white;
         }
 
         /* --- WHATSAPP FLUTUANTE --- */
@@ -302,13 +235,101 @@ Aqui está o código completo atualizado:
             text-decoration: none;
         }
 
-        /* Responsividade */
+        /* =========================================
+           RESPONSIVIDADE AVANÇADA (CELULAR E TABLET)
+           ========================================= */
+        
+        /* Tablets e Notebooks Pequenos (até 991px) */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: white;
+                padding: 20px;
+                border-radius: 0 0 8px 8px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            
+            .navbar-nav .btn-gold {
+                margin-top: 15px;
+                width: 100%; /* Botão ocupa largura total no menu */
+                text-align: center;
+                margin-left: 0 !important;
+            }
+
+            .nav-link {
+                margin-left: 0;
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .hero-content h1 { font-size: 2.8rem; }
+            
+            /* Ajuste para imagem e texto do Quem Somos não colarem */
+            #quem-somos img {
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Celulares (até 768px) */
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            .section-title h2 { font-size: 2rem; }
-            .whatsapp-float { right: 20px; bottom: 20px; }
-            .navbar-brand img { height: 40px; } 
-            .navbar-brand { font-size: 1.1rem; } /* Texto menor no mobile */
+            /* Navbar */
+            .navbar-brand { font-size: 1rem; }
+            .navbar-brand img { height: 40px; }
+            
+            /* Hero Section */
+            .hero {
+                min-height: 90vh; /* Altura melhor para mobile */
+                text-align: left;
+                padding-top: 100px; /* Mais espaço pro menu fixo */
+            }
+            .hero-content h1 { 
+                font-size: 2.2rem; /* Fonte menor */
+            }
+            .hero-content p { 
+                font-size: 1rem;
+                padding-left: 15px;
+                border-left-width: 3px;
+            }
+            
+            /* Seções Gerais */
+            section { padding: 50px 0; } /* Menos padding vertical */
+            
+            .section-title h2 { 
+                font-size: 1.8rem; 
+            }
+            .section-title p {
+                font-size: 0.9rem;
+            }
+
+            /* Botões */
+            .btn-gold {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                width: 100%; /* Botões full width no mobile ficam melhores */
+                display: block;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            
+            /* Ajuste para os botões do hero ficarem um embaixo do outro se houver dois */
+            .hero .d-flex {
+                flex-direction: column;
+            }
+            .hero .btn-gold {
+                margin-right: 0 !important;
+            }
+
+            /* Whatsapp Flutuante menor */
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            /* Banner Logística */
+            .logistics-banner h2 { font-size: 1.8rem; }
+            .logistics-banner .lead { font-size: 1rem; }
         }
     </style>
 </head>
@@ -317,18 +338,18 @@ Aqui está o código completo atualizado:
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="stabarbarafun.png" alt="Santa Bárbara Logística Funerária" height="50" class="mr-2">
-                Santa Bárbara
+                <img src="stabarbarafun.png" alt="SB" height="50" class="mr-2 d-none d-sm-block">
+                <img src="stabarbarafun.png" alt="SB" height="40" class="mr-2 d-block d-sm-none"> Santa Bárbara
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                 <span style="color:var(--primary); font-size: 1.5rem;"><i class="fas fa-bars"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto align-items-center">
+                <ul class="navbar-nav ml-auto align-items-lg-center">
                     <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="#quem-somos">Quem Somos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
-                    <li class="nav-item mt-3 mt-lg-0 ml-lg-3">
+                    <li class="nav-item ml-lg-3">
                         <a href="https://wa.me/5545991010468" class="btn btn-gold">
                             <i class="fab fa-whatsapp mr-2"></i> Plantão 24h
                         </a>
@@ -342,11 +363,12 @@ Aqui está o código completo atualizado:
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 hero-content" data-aos="fade-right" data-aos-duration="1000">
-                    <span style="color: var(--accent); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; display: block;">Logística Funerária Especializada</span>
+                    <span style="color: var(--accent); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; display: block; font-size: 0.85rem;">Logística Funerária Especializada</span>
                     <h1>Excelência em Translado <br> <span style="color:var(--accent)">Internacional e Terrestre</span></h1>
                     <p>Cuidamos de todos os trâmites burocráticos e logísticos para garantir que seu ente querido retorne ao lar com dignidade, segurança e respeito.</p>
-                    <div class="d-flex flex-column flex-sm-row">
-                        <a href="https://wa.me/5545991010468?text=Olá, preciso de um orçamento para translado." class="btn btn-gold mr-3 mb-3 mb-sm-0">
+                    
+                    <div class="mt-4">
+                        <a href="https://wa.me/5545991010468?text=Olá, preciso de um orçamento para translado." class="btn btn-gold">
                             Falar com Especialista
                         </a>
                     </div>
@@ -358,16 +380,16 @@ Aqui está o código completo atualizado:
     <section id="quem-somos">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
-                    <img src="stabarbarafun.png" alt="Logística Funerária" class="img-fluid rounded shadow-lg">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="stabarbarafun.png" alt="Logística Funerária" class="img-fluid rounded shadow-lg w-100">
                 </div>
                 <div class="col-lg-6 pl-lg-5" data-aos="fade-left">
-                    <div class="section-title text-left mb-4">
+                    <div class="section-title text-left mb-4 mt-4 mt-lg-0">
                         <span>SOBRE A SANTA BÁRBARA</span>
                         <h2 style="margin: 0; border: none;">Compromisso e Agilidade</h2>
                         <div style="width: 60px; height: 3px; background: var(--accent); margin-top: 15px;"></div>
                     </div>
-                    <p class="lead text-muted mb-4">Referência em Cascavel, Toledo e Foz do Iguaçu na gestão humanizada de transportes funerários.</p>
+                    <p class="lead text-muted mb-4" style="font-size: 1.1rem;">Referência em Cascavel, Toledo e Foz do Iguaçu na gestão humanizada de transportes funerários.</p>
                     <p>Entendemos que o momento da perda exige sensibilidade, mas também extrema competência técnica. A <strong>Santa Bárbara</strong> nasceu para resolver a complexidade da logística funerária.</p>
                     <p>Nossa equipe é especializada nas legislações aduaneiras e sanitárias, garantindo que o translado, seja ele entre cidades ou entre países, ocorra sem imprevistos.</p>
                     
@@ -444,9 +466,11 @@ Aqui está o código completo atualizado:
         <div class="container">
             <h2 class="text-white mb-4">Precisa de um orçamento imediato?</h2>
             <p class="lead text-white-50 mb-5">Nossa equipe de plantão está pronta para calcular a rota e os custos agora mesmo.</p>
-            <a href="https://wa.me/5545991010468" class="btn btn-gold btn-lg">
-                <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
-            </a>
+            <div class="d-flex justify-content-center">
+                <a href="https://wa.me/5545991010468" class="btn btn-gold btn-lg">
+                    <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+                </a>
+            </div>
         </div>
     </section>
 
@@ -490,11 +514,10 @@ Aqui está o código completo atualizado:
     <script>
         // Inicia a animação ao rolar
         AOS.init({
-            once: true, // anima apenas uma vez ao descer
-            offset: 100, // começa a animar um pouco antes do elemento aparecer
+            once: true,
+            offset: 50, // Reduzido para disparar mais fácil no mobile
+            duration: 800,
         });
     </script>
 </body>
 </html>
-
-```
