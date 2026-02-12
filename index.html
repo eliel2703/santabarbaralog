@@ -1,1340 +1,500 @@
+Com certeza. Adicionei o nome **Santa Bárbara** de volta ao lado do logotipo na barra de navegação, mantendo a formatação elegante (fonte *Playfair Display*) e o alinhamento correto.
+
+Aqui está o código completo atualizado:
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Plano Assistencial Familiar Anjus | Cuidado e Proteção para Sua Família</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Bárbara | Logística Funerária Internacional e Terrestre</title>
+    <meta name="description" content="Especialistas em translado funerário aéreo e terrestre. Atendimento em Cascavel, Foz do Iguaçu e região. Plantão 24h.">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
+        /* --- VARIÁVEIS E GERAL --- */
         :root {
-            --primary: #0A2463;
-            --secondary: #3E92CC;
-            --accent: #D8315B;
-            --light: #F8FAFC;
-            --dark: #1E293B;
-            --text: #334155;
-            --border: #E2E8F0;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
-            --gradient: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --primary: #0F2850; /* Azul Marinho Profundo */
+            --accent: #C5A059;  /* Dourado Nobre */
+            --accent-hover: #b08d48;
+            --light: #F8F9FA;
+            --text-dark: #1A1A1A;
+            --text-grey: #666;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--text);
+            color: var(--text-dark);
             overflow-x: hidden;
-            line-height: 1.7;
-            background: var(--light);
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        h1, h2, h3, h4, h5 {
             font-family: 'Playfair Display', serif;
-            font-weight: 800;
-            color: var(--dark);
-            line-height: 1.2;
-        }
-
-        /* Navbar Moderna */
-       .navbar {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            padding: 18px 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-sm);
-            border-bottom: 1px solid rgba(10, 36, 99, 0.1);
-            z-index: 1000;
-        }
-
-        .navbar.scrolled {
-            padding: 12px 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .navbar-brand {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--primary) !important;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .navbar-brand span {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .brand-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            box-shadow: var(--shadow-sm);
-            border: 2px solid white;
-        }
-
-        .logo-anjus {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 5px;
-        }
-
-        .nav-link {
-            color: var(--dark) !important;
-            font-weight: 500;
-            padding: 8px 20px !important;
-            margin: 0 4px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-size: 15px;
-            position: relative;
-        }
-
-        .nav-link:hover {
-            color: var(--primary) !important;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 20px;
-            right: 20px;
-            height: 2px;
-            background: var(--gradient);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            transform: scaleX(1);
-        }
-
-        .btn-primary-custom {
-            background: var(--gradient);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 8px;
-            border: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(10, 36, 99, 0.15);
-            letter-spacing: 0.3px;
-        }
-
-        .btn-primary-custom:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(10, 36, 99, 0.25);
-        }
-
-
-        /* Hero Section Premium */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #0A2463 0%, #1a3a6e 50%, #3E92CC 100%);
-            overflow: hidden;
-            padding-top: 80px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.15;
-            mix-blend-mode: overlay;
-        }
-
-        .hero-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: white;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 8px 20px;
-            border-radius: 50px;
-            margin-bottom: 25px;
-            font-size: 14px;
-            font-weight: 500;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .hero h1 {
-            font-size: 58px;
-            color: white;
-            margin-bottom: 25px;
-            line-height: 1.1;
-            font-weight: 800;
-        }
-
-        .hero-subtitle {
-            font-size: 20px;
-            margin-bottom: 40px;
-            opacity: 0.95;
-            max-width: 600px;
-            line-height: 1.6;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn-hero-primary {
-            background: white;
             color: var(--primary);
-            padding: 16px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 16px;
+        }
+
+        a { text-decoration: none !important; }
+
+        /* --- BOTÕES --- */
+        .btn-gold {
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
             border: none;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
         }
 
-        .btn-hero-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-hero-secondary {
-            background: transparent;
+        .btn-gold:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
             color: white;
-            padding: 16px 40px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            transition: all 0.3s ease;
         }
 
-        .btn-hero-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: white;
-        }
-
-        .hero-image {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-card {
-            background: white;
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 42px;
-            font-weight: 800;
-            color: white;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-
-        /* Trust Section */
-        .trust-section {
-            background: white;
-            padding: 40px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .trust-items {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        .trust-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--light);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-            font-size: 24px;
-        }
-
-        /* Section Header */
-        .section {
-            padding: 100px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-
-        .section-badge {
-            display: inline-block;
-            background: var(--light);
-            color: var(--secondary);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            text-transform: uppercase;
+        /* Ajuste Específico para o Botão da Navbar (MENOR) */
+        .navbar .btn-gold {
+            padding: 8px 16px;   /* Menor preenchimento */
+            font-size: 0.8rem;   /* Fonte menor */
             letter-spacing: 0.5px;
         }
 
-        .section-title {
-            font-size: 42px;
+        .btn-outline-light {
+            border: 2px solid rgba(255,255,255,0.3);
+            font-weight: 500;
+        }
+
+        .btn-outline-light:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 8px 0;
+        }
+
+        .navbar-brand {
+            display: flex;           /* Alinha imagem e texto */
+            align-items: center;     /* Centraliza verticalmente */
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary) !important;
+            font-size: 1.3rem;       /* Tamanho do texto */
+        }
+
+        .nav-link {
+            color: var(--primary) !important;
+            font-weight: 500;
+            margin-left: 15px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent) !important;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(15, 40, 80, 0.85), rgba(68, 72, 5, 0.7)), url('fundo.png');
+            background-size: cover;
+            background-position: center -15%; /* Mantém a imagem mais para baixo conforme pedido anterior */
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            color: white;
+            font-size: 3.5rem;
             margin-bottom: 20px;
-            color: var(--dark);
+            line-height: 1.2;
         }
 
-        .section-description {
-            font-size: 18px;
-            color: var(--text);
-            line-height: 1.7;
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 600px;
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
         }
 
-        /* Service Cards Premium */
+        /* --- SECTIONS GERAL --- */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 15px auto 0;
+        }
+
+        /* --- SERVIÇOS (QUADRADINHOS) --- */
         .service-card {
             background: white;
-            border-radius: 20px;
-            padding: 40px;
+            padding: 40px 30px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             height: 100%;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid var(--border);
             position: relative;
             overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: transparent;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
+            box-shadow: 0 20px 40px rgba(15, 40, 80, 0.1);
+            border-bottom: 3px solid var(--accent);
         }
 
         .service-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 32px;
+            font-size: 40px;
+            color: var(--accent);
             margin-bottom: 25px;
-            transition: all 0.3s ease;
         }
 
-        .service-card:hover .service-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .service-title {
-            font-size: 22px;
+        .service-card h4 {
+            font-size: 1.25rem;
             margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .service-description {
-            color: var(--text);
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .service-link {
-            color: var(--secondary);
             font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
         }
 
-        .service-link:hover {
-            gap: 12px;
+        .service-card p {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0;
         }
 
-        /* Plan Cards */
-        .plan-card {
-            background: white;
-            border-radius: 24px;
-            padding: 40px;
-            height: 100%;
-            border: 2px solid var(--border);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .plan-card.featured {
-            border-color: var(--secondary);
-            transform: scale(1.05);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .plan-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--accent);
+        /* --- DESTAQUE LOGÍSTICA --- */
+        .logistics-banner {
+            background-color: var(--primary);
             color: white;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
         }
 
-        .plan-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--secondary);
-        }
-
-        .plan-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--light);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-            font-size: 28px;
-            margin-bottom: 25px;
-        }
-
-        .plan-name {
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-
-        .plan-price {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--primary);
+        .stat-item h3 {
+            color: var(--accent);
+            font-size: 2.5rem;
             margin-bottom: 5px;
         }
+        .stat-item p { color: rgba(255,255,255,0.7); }
 
-        .plan-price span {
-            font-size: 18px;
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        .plan-period {
-            color: var(--text);
-            margin-bottom: 30px;
-            display: block;
-        }
-
-        .plan-features {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 30px;
-        }
-
-        .plan-features li {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--text);
-        }
-
-        .plan-features li:last-child {
-            border-bottom: none;
-        }
-
-        .plan-features i {
-            color: var(--secondary);
-            font-size: 18px;
-        }
-
-        .plan-card {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .btn-plan {
-            width: 100%;
-            padding: 14px;
-            border-radius: 12px;
-            font-weight: 600;
-            border: 2px solid var(--secondary);
-            background: transparent;
-            color: var(--secondary);
-            transition: all 0.3s ease;
-            margin-top: auto;
-        }
-
-
-        .plan-card.featured .btn-plan {
-            background: var(--gradient);
-            color: white;
-            border: none;
-        }
-
-        .btn-plan:hover {
-            background: var(--gradient);
-            color: white;
-            border-color: transparent;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--gradient);
-            padding: 80px 0;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-            opacity: 0.5;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-        .cta-title {
-            font-size: 38px;
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .cta-description {
-            font-size: 18px;
-            opacity: 0.95;
-            margin-bottom: 35px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-cta {
+        /* --- CONTATO & MAPA --- */
+        .contact-info-box {
             background: white;
-            color: var(--primary);
-            padding: 16px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 16px;
-            border: none;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 8px;
         }
 
-        .btn-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Footer Premium */
-        .footer {
-            background: var(--dark);
-            color: rgba(255, 255, 255, 0.8);
-            padding: 80px 0 30px;
-        }
-
-        .footer-brand {
-            font-size: 24px;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 20px;
+        .contact-item {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            align-items: flex-start;
+            margin-bottom: 30px;
         }
 
-        .footer-description {
-            margin-bottom: 25px;
-            line-height: 1.7;
-        }
-
-        .footer-contact {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: rgba(255, 255, 255, 0.8);
-            transition: all 0.3s ease;
-        }
-
-        .footer-contact-item:hover {
-            color: white;
-            padding-left: 5px;
-        }
-
-        .footer-contact-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-        }
-
-        .footer-title {
-            font-size: 18px;
-            color: white;
-            margin-bottom: 25px;
-            font-weight: 700;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .footer-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
+        .contact-icon {
             width: 50px;
-            height: 3px;
-            background: var(--secondary);
-            border-radius: 2px;
-        }
-
-        .footer-links {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .footer-links a:hover {
-            color: white;
-            padding-left: 8px;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 12px;
-            margin-top: 25px;
-        }
-
-        .social-link {
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 60px;
-            padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 55px;
-            height: 55px;
-            background: var(--gradient);
+            height: 50px;
+            background: rgba(197, 160, 89, 0.1);
+            color: var(--accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             font-size: 20px;
-            cursor: pointer;
-            box-shadow: var(--shadow-lg);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
+            margin-right: 20px;
+            flex-shrink: 0;
         }
 
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
+        /* --- FOOTER --- */
+        footer {
+            background: #08162E;
+            color: white;
+            padding: 60px 0 20px;
+            border-top: 4px solid var(--accent);
         }
 
-        .back-to-top:hover {
-            transform: translateY(-5px);
+        .footer-social a {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: 0.3s;
         }
 
-        /* Responsive */
-        @media (max-width: 991px) {
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-
-            .plan-card.featured {
-                transform: scale(1);
-            }
+        .footer-social a:hover {
+            background: var(--accent);
+            color: white;
         }
 
-        @media (max-width: 767px) {
-            .hero h1 {
-                font-size: 32px;
-            }
+        /* --- WHATSAPP FLUTUANTE --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
 
-            .hero-subtitle {
-                font-size: 16px;
-            }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: white;
+            text-decoration: none;
+        }
 
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn-hero-primary,
-            .btn-hero-secondary {
-                width: 100%;
-                text-align: center;
-            }
-
-            .hero-stats {
-                gap: 25px;
-            }
-
-            .stat-number {
-                font-size: 32px;
-            }
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .section-title h2 { font-size: 2rem; }
+            .whatsapp-float { right: 20px; bottom: 20px; }
+            .navbar-brand img { height: 40px; } 
+            .navbar-brand { font-size: 1.1rem; } /* Texto menor no mobile */
         }
     </style>
 </head>
-
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#home">
-                <div class="brand-icon">
-                    <img src="anjus.png" alt="Logo Anjus" class="logo-anjus">
-                </div>
 
-                <span>Plano Anjus Assistencial</span>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="stabarbarafun.png" alt="Santa Bárbara Logística Funerária" height="50" class="mr-2">
+                Santa Bárbara
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+                <span style="color:var(--primary); font-size: 1.5rem;"><i class="fas fa-bars"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#servicos">Serviços</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#planos">Planos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contato">Contato</a>
-                    </li>
-                    <li class="nav-item ml-3">
-                        <button class="btn-primary-custom"
-                            onclick="window.location.href='https://wa.me/+5545991515040'">
-                            Fale Conosco
-                        </button>
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quem-somos">Quem Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+                    <li class="nav-item mt-3 mt-lg-0 ml-lg-3">
+                        <a href="https://wa.me/5545991010468" class="btn btn-gold">
+                            <i class="fab fa-whatsapp mr-2"></i> Plantão 24h
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-pattern"></div>
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 hero-content" data-aos="fade-right" data-aos-duration="1000">
+                    <span style="color: var(--accent); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; display: block;">Logística Funerária Especializada</span>
+                    <h1>Excelência em Translado <br> <span style="color:var(--accent)">Internacional e Terrestre</span></h1>
+                    <p>Cuidamos de todos os trâmites burocráticos e logísticos para garantir que seu ente querido retorne ao lar com dignidade, segurança e respeito.</p>
+                    <div class="d-flex flex-column flex-sm-row">
+                        <a href="https://wa.me/5545991010468?text=Olá, preciso de um orçamento para translado." class="btn btn-gold mr-3 mb-3 mb-sm-0">
+                            Falar com Especialista
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quem-somos">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 hero-content">
-                    <div class="hero-badge animate__animated animate__fadeInUp">
-                        <i class="fas fa-shield-alt"></i>
-                        Proteção Completa para Sua Família
-                    </div>
-                    <h1 class="animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
-                        Cuidado e Proteção em Todos os Momentos
-                    </h1>
-                    <p class="hero-subtitle animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
-                        Oferecemos assistência familiar completa com atendimento 24/7, cobertura funerária e rede de
-                        especialidades médicas com descontos exclusivos.
-                    </p>
-                    <div class="hero-buttons animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
-                        <button class="btn-hero-primary" onclick="window.location.href='#planos'">
-                            Conhecer Planos
-                        </button>
-                        <button class="btn-hero-secondary"
-                            onclick="window.location.href='https://wa.me/+5545991515040'">
-                            <i class="fab fa-whatsapp mr-2"></i>
-                            Falar no WhatsApp
-                        </button>
-                    </div>
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <img src="stabarbarafun.png" alt="Logística Funerária" class="img-fluid rounded shadow-lg">
                 </div>
-                <div class="col-lg-6 hero-image d-none d-lg-block">
-                    <div class="hero-card animate__animated animate__fadeInRight" style="animation-delay: 0.5s;">
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Família" style="width: 100%; border-radius: 16px;">
+                <div class="col-lg-6 pl-lg-5" data-aos="fade-left">
+                    <div class="section-title text-left mb-4">
+                        <span>SOBRE A SANTA BÁRBARA</span>
+                        <h2 style="margin: 0; border: none;">Compromisso e Agilidade</h2>
+                        <div style="width: 60px; height: 3px; background: var(--accent); margin-top: 15px;"></div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Services Section -->
-    <section id="servicos" class="section" style="background: var(--light);">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Nossos Serviços</span>
-                <h2 class="section-title">Proteção Completa para Sua Família</h2>
-                <p class="section-description">
-                    Oferecemos uma gama completa de serviços para garantir tranquilidade e segurança em todos os
-                    momentos da vida.
-                </p>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card animate__animated">
-                        <div class="service-icon">
-                            <i class="fas fa-hand-holding-heart"></i>
-                        </div>
-                        <h3 class="service-title">Assistência Funerária</h3>
-                        <p class="service-description">
-                            Serviços completos com urna, ornamentação, paramentos religiosos e toda logística necessária
-                            com respeito e dignidade.
-                        </p>
-                        <a href="#planos" class="service-link">
-                            Saiba mais <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card animate__animated" style="animation-delay: 0.1s;">
-                        <div class="service-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h3 class="service-title">Atendimento 24 Horas</h3>
-                        <p class="service-description">
-                            Disponibilidade integral 24/7 com equipe especializada para suporte imediato e humanizado em
-                            todo o território nacional.
-                        </p>
-                        <a href="#planos" class="service-link">
-                            Saiba mais <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card animate__animated" style="animation-delay: 0.2s;">
-                        <div class="service-icon">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                        <h3 class="service-title">Rede de Saúde</h3>
-                        <p class="service-description">
-                            Acesso a mais de 28 especialidades médicas com descontos de até 50% em consultas, exames e
-                            procedimentos.
-                        </p>
-                        <a href="#planos" class="service-link">
-                            Saiba mais <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card animate__animated" style="animation-delay: 0.3s;">
-                        <div class="service-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3 class="service-title">Cobertura Familiar</h3>
-                        <p class="service-description">
-                            Proteção estendida para toda a família com benefícios exclusivos e condições especiais para
-                            dependentes.
-                        </p>
-                        <a href="#planos" class="service-link">
-                            Saiba mais <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card animate__animated" style="animation-delay: 0.4s;">
-                        <div class="service-icon">
-                            <i class="fas fa-file-medical"></i>
-                        </div>
-                        <h3 class="service-title">Suporte Documental</h3>
-                        <p class="service-description">
-                            Auxílio completo com toda documentação necessária, facilitando processos burocráticos em
-                            momentos difíceis.
-                        </p>
-                        <a href="#planos" class="service-link">
-                            Saiba mais <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card animate__animated" style="animation-delay: 0.5s;">
-                        <div class="service-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h3 class="service-title">Apoio Emocional</h3>
-                        <p class="service-description">
-                            Equipe preparada para oferecer suporte emocional e psicológico para familiares em momentos
-                            delicados.
-                        </p>
-                        <a href="#planos" class="service-link">
-                            Saiba mais <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Plans Section -->
-    <section id="planos" class="section" style="background: white;">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Nossos Planos</span>
-                <h2 class="section-title">Escolha o Plano Ideal para Sua Família</h2>
-                <p class="section-description">
-                    Oferecemos planos flexíveis com coberturas completas e benefícios exclusivos para atender todas as
-                    necessidades.
-                </p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="plan-card animate__animated">
-                        <div class="plan-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3 class="plan-name">Plano Básico</h3>
-                        <div class="plan-price">R$ 89,90<span>/mês</span></div>
-                        <span class="plan-period">Cobertura essencial individual</span>
-                        <ul class="plan-features">
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Assistência funerária básica
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Atendimento 24 horas
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Urna e ornamentação
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Suporte documental
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Paramentos
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Kit-Lanche
-                            </li>
-                        </ul>
-                        <button class="btn-plan"
-                            onclick="window.location.href='https://wa.me/+5545991515040?text=Olá! Tenho interesse no Plano Básico'">
-                            Contratar Agora
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="plan-card featured animate__animated" style="animation-delay: 0.1s;">
-                        <div class="plan-badge">Mais Popular</div>
-                        <div class="plan-icon">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                        <h3 class="plan-name">Plano Familiar</h3>
-                        <div class="plan-price">R$ 149,90<span>/mês</span></div>
-                        <span class="plan-period">Proteção completa para família</span>
-                        <ul class="plan-features">
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Tudo do Plano Básico
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Cobertura para até 5 pessoas
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Rede de especialidades médicas
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Descontos de até 30%
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Suporte emocional
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Empréstimo de materiais
-                            </li>
-                        </ul>
-                        <button class="btn-plan"
-                            onclick="window.location.href='https://wa.me/+5545991515040?text=Olá! Tenho interesse no Plano Familiar'">
-                            Contratar Agora
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="plan-card animate__animated" style="animation-delay: 0.2s;">
-                        <div class="plan-icon">
-                            <i class="fas fa-gem"></i>
-                        </div>
-                        <h3 class="plan-name">Plano Premium</h3>
-                        <div class="plan-price">R$ 199,90<span>/mês</span></div>
-                        <span class="plan-period">Cobertura máxima e exclusiva</span>
-                        <ul class="plan-features">
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Tudo do Plano Familiar
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Serviços funerários premium
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Rede premium de saúde
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Descontos de até 50%
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Atendimento prioritário
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Benefícios exclusivos
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                Planos corporativos
-                            </li>
-                        </ul>
-                        <button class="btn-plan"
-                            onclick="window.location.href='https://wa.me/+5545991515040?text=Olá! Tenho interesse no Plano Premium'">
-                            Contratar Agora
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Pronto para Proteger Sua Família?</h2>
-                <p class="cta-description">
-                    Entre em contato conosco e descubra como podemos oferecer a proteção e tranquilidade que sua família
-                    merece.
-                </p>
-                <button class="btn-cta" onclick="window.location.href='https://wa.me/+5545991515040'">
-                    <i class="fab fa-whatsapp mr-2"></i>
-                    Fale com a gente
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contato" class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-md-6 mb-4">
-                    <div class="footer-brand">
-                        <div class="brand-icon" style="width: 40px; height: 40px; font-size: 18px;">
-                            <img src="anjus.png" alt="Logo Anjus" class="logo-anjus">
-                        </div>
-                        Plano Anjus Assistencial
-                    </div>
-                    <p class="footer-description">
-                        Oferecemos acolhimento e suporte integral para sua família nos momentos mais delicados, com
-                        proteção completa e benefícios exclusivos.
-                    </p>
-                    <div class="footer-social">
-                        <a href="https://wa.me/+5545991515040" target="_blank" class="social-link">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://instagram.com/planoassistencial.anjus/" target="_blank" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="mailto:contato@anjusassistencial.com.br" class="social-link">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h3 class="footer-title">Links Rápidos</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#planos">Planos</a></li>
-                        <li><a href="#contato">Contato</a></li>
+                    <p class="lead text-muted mb-4">Referência em Cascavel, Toledo e Foz do Iguaçu na gestão humanizada de transportes funerários.</p>
+                    <p>Entendemos que o momento da perda exige sensibilidade, mas também extrema competência técnica. A <strong>Santa Bárbara</strong> nasceu para resolver a complexidade da logística funerária.</p>
+                    <p>Nossa equipe é especializada nas legislações aduaneiras e sanitárias, garantindo que o translado, seja ele entre cidades ou entre países, ocorra sem imprevistos.</p>
+                    
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-2"><i class="fas fa-check-circle text-warning mr-2"></i> Frota homologada e adaptada</li>
+                        <li><i class="fas fa-check-circle text-warning mr-2"></i> Parceria com companhias aéreas globais</li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h3 class="footer-title">Nossos Serviços</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Assistência Funerária</a></li>
-                        <li><a href="#">Atendimento 24h</a></li>
-                        <li><a href="#">Rede de Saúde</a></li>
-                        <li><a href="#">Suporte Familiar</a></li>
-                        <li><a href="#">Planos Corporativos</a></li>
-                    </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" style="background-color: var(--light);">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <span>SOLUÇÕES COMPLETAS</span>
+                <h2>Nossos Serviços de Logística</h2>
+                <p class="text-muted mt-3">Gerenciamos cada etapa do processo para sua tranquilidade.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-plane-departure"></i></div>
+                        <h4>Translado Aéreo Internacional</h4>
+                        <p>Gestão completa de repatriação de corpos. Cuidamos da documentação consular, embalsamamento obrigatório e trâmites com as companhias aéreas.</p>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h3 class="footer-title">Contato</h3>
-                    <div class="footer-contact">
-                        <div class="footer-contact-item">
-                            <div class="footer-contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>@anjusassistencial.com.br</div>
-                        </div>
-                        <div class="footer-contact-item">
-                            <div class="footer-contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div>+55 (45) 99151-5040</div>
-                        </div>
+
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-ambulance"></i></div>
+                        <h4>Translado Terrestre</h4>
+                        <p>Veículos modernos e homologados para transporte intermunicipal e interestadual, garantindo dignidade e segurança durante todo o trajeto.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-passport"></i></div>
+                        <h4>Assessoria Documental</h4>
+                        <p>Liberação junto ao IML, Cartórios, Consulados e Vigilância Sanitária. Resolvemos a burocracia para que a família possa focar no luto.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-flask"></i></div>
+                        <h4>Tanatopraxia e Embalsamamento</h4>
+                        <p>Preparação técnica do corpo exigida por lei para viagens de longa distância, garantindo a preservação necessária.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-box"></i></div>
+                        <h4>Urnas para Transporte</h4>
+                        <p>Urnas de zinco para transporte internacional e modelos padrão para transporte aéreo, seguindo todas as normas da IATA.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h4>Acolhimento Familiar</h4>
+                        <p>Suporte humanizado 24 horas por dia, mantendo a família informada sobre cada etapa do deslocamento em tempo real.</p>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div>
-                    &copy; 2025 Plano Assistencial Familiar Anjus. Todos os direitos reservados.
+        </div>
+    </section>
+
+    <section class="logistics-banner text-center" data-aos="zoom-in">
+        <div class="container">
+            <h2 class="text-white mb-4">Precisa de um orçamento imediato?</h2>
+            <p class="lead text-white-50 mb-5">Nossa equipe de plantão está pronta para calcular a rota e os custos agora mesmo.</p>
+            <a href="https://wa.me/5545991010468" class="btn btn-gold btn-lg">
+                <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4 class="text-white mb-4">Santa Bárbara</h4>
+                    <p style="opacity: 0.7;">Especialistas em logística funerária com ética e humanidade. Conectamos destinos para honrar memórias.</p>
                 </div>
-                <div style="color: rgba(255, 255, 255, 0.8);">
-                    Cuidando de quem você ama com respeito e dignidade
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white mb-4">Contato Rápido</h5>
+                    <ul class="list-unstyled" style="opacity: 0.8;">
+                        <li class="mb-2"><a href="https://wa.me/5545991010468" class="text-white"><i class="fab fa-whatsapp mr-2 text-warning"></i> (45) 99101-0468</a></li>
+                        <li class="mb-2"><i class="fas fa-envelope mr-2 text-warning"></i> contato@santabarbara.com.br</li>
+                        <li class="mb-2"><a href="https://instagram.com/santabarbarafunlog" class="text-white"><i class="fab fa-instagram mr-2 text-warning"></i> @santabarbaralogfun</a></li>
+                    </ul>
                 </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white mb-4">Região de Atuação</h5>
+                    <ul class="list-unstyled" style="opacity: 0.8;">
+                        <li><i class="fas fa-chevron-right mr-2 text-warning"></i> Cascavel</li>
+                        <li><i class="fas fa-chevron-right mr-2 text-warning"></i> Toledo</li>
+                        <li><i class="fas fa-chevron-right mr-2 text-warning"></i> Foz do Iguaçu</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-5 pt-4 border-top border-secondary">
+                <p class="mb-0" style="font-size: 0.8rem; opacity: 0.5;">© 2026 Santa Bárbara Logística Funerária. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top -->
-    <div class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+    <a href="https://wa.me/5545991010468?text=Olá, vim pelo site e gostaria de informações." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        $(document).ready(function () {
-            // Navbar scroll effect
-            $(window).scroll(function () {
-                if ($(window).scrollTop() > 50) {
-                    $('.navbar').addClass('scrolled');
-                } else {
-                    $('.navbar').removeClass('scrolled');
-                }
-
-                // Back to top button
-                if ($(window).scrollTop() > 300) {
-                    $('#backToTop').addClass('show');
-                } else {
-                    $('#backToTop').removeClass('show');
-                }
-            });
-
-            // Smooth scrolling
-            $('a[href*="#"]').on('click', function (e) {
-                var target = $(this).attr('href');
-                if (target !== '#' && $(target).length) {
-                    e.preventDefault();
-                    $('html, body').animate({
-                        scrollTop: $(target).offset().top - 80
-                    }, 800);
-                }
-            });
-
-            // Back to top button click
-            $('#backToTop').click(function () {
-                $('html, body').animate({ scrollTop: 0 }, 800);
-            });
-
-            // Animation on scroll
-            function animateOnScroll() {
-                $('.animate__animated').each(function () {
-                    var elementTop = $(this).offset().top;
-                    var elementBottom = elementTop + $(this).outerHeight();
-                    var viewportTop = $(window).scrollTop();
-                    var viewportBottom = viewportTop + $(window).height();
-
-                    if (elementBottom > viewportTop && elementTop < viewportBottom) {
-                        if (!$(this).hasClass('animate__fadeInUp')) {
-                            $(this).addClass('animate__fadeInUp');
-                        }
-                    }
-                });
-            }
-
-            $(window).scroll(function () {
-                animateOnScroll();
-            });
-
-            animateOnScroll();
-
-            // Mobile menu close on click
-            $('.navbar-nav a').on('click', function () {
-                if ($(window).width() < 992) {
-                    $('.navbar-collapse').collapse('hide');
-                }
-            });
+        // Inicia a animação ao rolar
+        AOS.init({
+            once: true, // anima apenas uma vez ao descer
+            offset: 100, // começa a animar um pouco antes do elemento aparecer
         });
     </script>
 </body>
-
 </html>
+
+```
